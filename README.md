@@ -6,7 +6,7 @@ Também é necessário possuir um domínio registrado no serviço Route53 da AWS
 ## Cuidados
 
 1. O código deste repositório admite que os usuários já possuam um nome de domínio Route53.
-2. Seguir e implantar recursos na AWS, conforme ensinado por este código, INCORRERÁ EM TARIFAS!!! Certifique-se de destruir qualquer infraestrutura que você não precisa."
+2. Implantar recursos na AWS, conforme mostrado neste código, pode **acarretar em custos!** Portanto, certifique-se de destruir qualquer infraestrutura que você não precisar mais.
 
 ## Ferramentas e plataforma utilizada
 
@@ -28,13 +28,13 @@ A AMI utilizada na AWS é a Amazon Linux 2 na região de us-east-1
 
 Vamos utilizar a região us-east-1 para:
 
-1. Criar uma VPC.
-2. Estabelecer duas subnets públicas em us-east-1.
-3. Anexar um Gateway de Internet.
-4. Configurar um par de chaves SSH para acesso à instância.
-5. Configurar o Jenkins no Application Load Balancer.
-6. Obter um certificado HTTPS usando o AWS Certificate Manager (ACM) para * garantir comunicações seguras (HTTPS). Os detalhes serão explicados a seguir.
-7. Utilizar o Route 53 para facilitar o acesso via DNS*. 
+1. Criar uma VPC
+2. Estabelecer duas subnets públicas em us-east-1
+3. Anexar um Gateway de Internet
+4. Configurar um par de chaves SSH para acesso à instância
+5. Configurar o Jenkins no Application Load Balancer
+6. Obter um certificado HTTPS usando o AWS Certificate Manager (ACM) para garantir comunicações seguras via HTTPS
+7. Utilizar o Route 53 para facilitar o acesso via DNS* 
 
 **O Route 53 é usado para simplificar o acesso aos recursos da infraestrutura por meio de nomes de domínio amigáveis, em vez de depender de endereços IP complexos*.
 
