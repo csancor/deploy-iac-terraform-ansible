@@ -1,0 +1,48 @@
+---
+- hosts: "{{ passed_in_hosts }}"
+  become: yes
+  remote_user: ec2-user
+  become_user: root
+  vars_files:
+    - jenkins_vars.yml
+
+  tasks:
+  - name: Install Git client
+    yum:
+      name: git
+      state: present
+
+  - name: install dependencies
+    block:
+      - name: Remove Java 8 (if installed)
+        yum:
+          name: java-1.8.0-openjdk-devel
+          state: absent
+        ignore_errors: yes
+
+      - name: Install Java 11
+        command: sudo amazon-linux-extras install java-openjdk11 -y
+    vars:
+      package:
+        - wget
+
+  - name: Setup Jenkins Repo
+    get_url:
+      url: https://pkg.jenkins.io/redhat/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+  
+  - name: Import Jenkins Repo GPG key
+    rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+  - name: install Jenkins
+    yum:
+      name: jenkins
+      state: present
+
+  - name: Start Jenkins
+    service:
+      name: jenkins
+      state: started
+      enabled: yes
