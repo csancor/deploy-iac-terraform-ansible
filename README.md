@@ -1,4 +1,4 @@
-# deploy-iac-terraform-ansible
+# Deploy IaC Terraform e Ansible
 
 É preciso ter conta na AWS com os privilégios necessários para criar, atualizar e remover recursos no EC2. Além de ter o acesso configurado localmente(ex: credentials Access Key Id e Secret Access Key).
 Também é necessário possuir um domínio registrado no serviço Route53 da AWS.
