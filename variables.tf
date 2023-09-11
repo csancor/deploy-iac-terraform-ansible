@@ -1,4 +1,19 @@
+variable "profile" {
+  type    = string
+  default = "default"
+}
+
 variable "region-controller" {
   type    = string
   default = "us-east-1"
+}
+
+variable "webserver-port" {
+  type    = number
+  default = 8080
+}
+
+variable "external-ip" {
+  type    = string
+  default = "0.0.0.0/0"
 }
