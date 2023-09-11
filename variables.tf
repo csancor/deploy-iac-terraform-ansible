@@ -22,3 +22,8 @@ variable "instance-type" {
   type    = string
   default = "t3.micro"
 }
+
+variable "dns-name" {
+  type    = string
+  default = "<public-hosted-zone-terminada-com-ponto>" # ex: "mydnslab1234.info."
+}
